@@ -1,0 +1,157 @@
+body {
+    background-color: DarkOliveGreen;
+}
+
+#pinCont {
+    width: 240px;
+    height: 360px;
+    padding: 20px;
+    border: 10px outset grey;
+    border-top: 10px outset grey;
+    border-left: 10px outset grey;
+    box-shadow: outset rgba(255,255,255,0.2) 8px  8px 18px 5px,
+                outset rgba(0,0,0,0.5)       -8px -8px 18px 5px;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    background-color: LavenderBlush;
+}
+
+.inputField {
+    width: 140px;
+    height: 30px;
+    text-align: center;
+    position: relative;
+    left: 40px;
+    background-color: lightgrey;
+    border: 3px solid grey;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.inputField:focus {
+    /* border: 3px solid grey; */
+    outline: none;
+}
+
+.round {
+    width: 20px;
+    height: 20px;
+}
+
+.pinNums {
+    position: relative;
+    top: 1px;
+}
+
+.pinLines {
+    display: flex;
+}
+
+.btn {
+    width: 64px;
+    height: 64px;
+    padding: 20px;
+    margin: 7px;
+    border: 3px solid grey;
+    border-radius: 100px;
+    box-shadow: inset rgba(255, 255, 255, 0.2) 8px 8px 18px 5px,
+                inset rgba(0, 0, 0, 0.5)       -8px -8px 18px 5px;
+    font-size: 32px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+}
+
+.btn:active,
+.btn:focus-visible {
+    transform: scale(0.9, 0.9);
+}
+
+.deleteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomeEl {
+    width: 420px; 
+    height: 30px; 
+    margin: 0 auto; 
+    position: absolute; 
+    top: 50%; 
+    left: 35%; 
+    font-size: 45px; 
+    color: lightgrey;
+}
+
+.errorMessage {
+    width: 180px;
+    height: 30px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    font-size: 45px;
+    color: lightgrey;
+}
+
+@keyframes hide {
+    0% {
+        transform: scale(0.8, 0.8);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.5, 0.5);
+    }
+     100% {
+        transform: scale(0.2, 0.2);
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes show {
+    0% {
+        transform: scale(0.3, 0.3);
+        opacity: 0%;
+    }
+    50% {
+        opacity: 50%;
+        transform: scale(0.5, 0.5);
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity: 100%;
+    }
+}
+
+@keyframes colorChange1 {
+    0% {
+        background: linear-gradient(to right, red, 0%, DarkOliveGreen);
+    }
+    50% {
+        background: linear-gradient(to right, red, 50%, DarkOliveGreen);
+    }
+    100% {
+        background: linear-gradient(to right, red, 100%, DarkOliveGreen);
+    }
+}
+
+@keyframes colorChange2 {
+    0% {
+        background: linear-gradient(to left, DarkOliveGreen, 100%, red);
+    }
+    50% {
+        background: linear-gradient(to left, DarkOliveGreen, 50%, red);
+    }
+    100% {
+        background: linear-gradient(to left, DarkOliveGreen, 100%, red);
+    }
+}
