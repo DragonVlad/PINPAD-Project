@@ -1,22 +1,19 @@
-let inputFieldValue = document.body.querySelector('.inputField');
-let inputBtn = document.body.querySelector('.inputBtn');
-let deleteBtn = document.body.querySelector('.deleteBtn');
-let numBtns = document.getElementsByClassName('numBtn');
-let limit = 4;
-let textLength = inputFieldValue.innerText;
-
-//Сделать набор цифр только до 4-х
+let inputFieldValue = document.body.querySelector('.inputField'),
+    inputBtn = document.body.querySelector('.inputBtn'),
+    deleteBtn = document.body.querySelector('.deleteBtn'),
+    numBtns = document.getElementsByClassName('numBtn'),
+    textLength = inputFieldValue.innerText,
+    limit = 4;
 
 for(let i = 0; i < numBtns.length; i++){
     numBtns[i].addEventListener('click', function(){
-        //console.log(inputFieldValue.value.length);
-        if(inputFieldValue.value.length > 3){ //Недопускаем ввод больше чертырех символов
-            console.log('Oh no!');
+        if(inputFieldValue.value.length > 3){ //Не допускаем ввод больше четырех символов
+            console.log('You entered too much!');
             return;
         } 
         inputFieldValue.value += numBtns[i].innerText;
     });
-    numBtns[i].addEventListener('keydown', function(event){
+    numBtns[i].addEventListener('keydown', function(event){ //Отключаем работу кнопок клавиатуры
         if(event.code == 'Space'){
             event.preventDefault();
             numBtns[i].blur();
@@ -33,10 +30,10 @@ for(let i = 0; i < numBtns.length; i++){
     });
 }
 
-deleteBtn.addEventListener('click', function(){
+deleteBtn.addEventListener('click', function(){ //По нажатию удаляем последний символ
     inputFieldValue.value = inputFieldValue.value.slice(0, -1);
-    console.log('Text deleted');
-    deleteBtn.addEventListener('keydown', function(event){
+    console.log('Last symbol deleted');
+    deleteBtn.addEventListener('keydown', function(event){ //Отключаем работу кнопок клавиатуры
         if(event.code == 'Space'){
             event.preventDefault();
             deleteBtn.blur();
@@ -54,18 +51,18 @@ deleteBtn.addEventListener('click', function(){
 });
 
 inputBtn.addEventListener('click', function(){
-    if(inputFieldValue.value == 1234){
+    if(inputFieldValue.value == 1234){ //При введении правильного пароля выводится приветственный заголовок
         let welcomeEl = document.createElement('h1');
             welcomeEl.classList.add('welcomeEl');
             welcomeEl.innerText = 'You are welcome!!!';
         
         document.body.querySelector('#pinCont').style.animation = 'hide 1s linear forwards normal';
         
-        setTimeout(function(){
+        setTimeout(function(){ 
             welcomeEl.style.animation = 'show 1.5s linear forwards normal'; 
             document.body.appendChild(welcomeEl);
         }, 1000);
-    } else {
+    } else { //При введении неправильного пароля выводится окно с ошибкой
         let errorMessage = document.createElement('h1');
             errorMessage.classList.add('errorMessage');
             errorMessage.innerText = 'ERROR';
@@ -82,7 +79,7 @@ inputBtn.addEventListener('click', function(){
         }, 1200);
         inputFieldValue.value = '';
     }
-    inputBtn.addEventListener('keydown', function(event){
+    inputBtn.addEventListener('keydown', function(event){ //Отключаем работу кнопок клавиатуры
         if(event.code == 'Space'){
             event.preventDefault();
             inputBtn.blur();
